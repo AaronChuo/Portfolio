@@ -26,6 +26,22 @@ gulp.task('unit-test', function() {
     }));
 });
 
+gulp.task('api-test', function() {
+  return gulp.src('test/api/**/test.spec.js')
+    .pipe($.mocha({
+      reporter: 'spec',
+      globals: [
+        {expect: require('chai').expect},
+        {supertest: require('supertest')}
+      ]
+    }))
+    .on('error', handleError)
+    .pipe($.notify({
+      title: 'Task: API Test',
+      message: 'Completed'
+    }));
+});
+
 gulp.task('webdriver-standalone', $.protractor.webdriver_standalone);
 
 gulp.task('webdriver-update', $.protractor.webdriver_update);

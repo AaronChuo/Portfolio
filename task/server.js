@@ -6,14 +6,11 @@ var browserSync = require('browser-sync');
 gulp.task('server', function() {
   browserSync({
     server: {
-      baseDir: '.tmp'
+      baseDir: './.tmp'
     }
   });
 });
 
 gulp.task('reload', function() {
-  browserSync.reload({
-    stream: true,
-    once: true
-  });
+  browserSync.reload();
 });

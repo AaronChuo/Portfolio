@@ -1,7 +1,9 @@
 'use strict';
 
 var AppDispatcher = require('../dispatcher/AppDispatcher');
+var AppConstants = require('../constants/AppConstants.js');
 
+var action = {};
 var AppActionCreator = {
 
   /**
@@ -9,14 +11,26 @@ var AppActionCreator = {
    */
   createData: function (data) {
 
+    action = {
+      actionType: AppConstants.CREATE_DATA,
+      data: data
+    };
+
+    AppDispatcher.dispatch(action);
+
   },
 
   /**
-   * Read
+   * Select
    */
-  readData: function (data) {
+  selectData: function (data) {
 
-    AppDispatcher.dispatch(data);
+    action = {
+      actionType: AppConstants.SELECT_DATA,
+      data: data
+    };
+
+    AppDispatcher.dispatch(action);
 
   },
 
@@ -25,12 +39,26 @@ var AppActionCreator = {
    */
   updateData: function (data) {
 
+    action = {
+      actionType: AppConstants.UPDATE_DATA,
+      data: data
+    };
+
+    AppDispatcher.dispatch(action);
+
   },
 
   /**
    * Delete
    */
   deleteData: function (data) {
+
+    action = {
+      actionType: AppConstants.DELETE_DATA,
+      data: data
+    }
+
+    AppDispatcher.dispatch(action);
 
   }
 

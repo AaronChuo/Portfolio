@@ -4,7 +4,7 @@
 
 'use strict';
 
-var AppWrapper = React.createFactory(require('./views/AppWrapper/AppWrapper.jsx'));
+var Cosmos = React.createFactory(require('./views/Cosmos.jsx'));
 
 
 /**
@@ -14,7 +14,7 @@ var AppWrapper = React.createFactory(require('./views/AppWrapper/AppWrapper.jsx'
 
   // application view render
   React.render(
-    AppWrapper(),
+    Cosmos(),
     document.getElementById('container')
   );
 

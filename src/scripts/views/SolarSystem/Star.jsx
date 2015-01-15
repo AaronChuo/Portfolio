@@ -13,9 +13,7 @@ var Star = React.createClass({
 
     return (
 
-      <div className="star">
-
-      </div>
+      <div className="star"></div>
 
     );
 

@@ -5,10 +5,8 @@
 
 var AppConstants = {
 
-  CREATE_DATA: 'createData',
-  SELECT_DATA: 'selectData',
-  UPDATE_DATA: 'updateData',
-  DELETE_DATA: 'deleteData'
+  CHANGE_EVENT: 'change',
+  SELECT_OBJECT: 'select_object'
 
 };
 

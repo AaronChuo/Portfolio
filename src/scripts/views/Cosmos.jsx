@@ -20,7 +20,7 @@
 var ControlPanel = require('./ControlPanel/ControlPanel.jsx');
 var SolarSystem = require('./SolarSystem/SolarSystem.jsx');
 
-var CosmosStores = require('../stores/CosmosStores.js');
+var AppStores = require('../stores/AppStores');
 
 var Cosmos = React.createClass({
 
@@ -29,7 +29,7 @@ var Cosmos = React.createClass({
    */
   getInitialState: function () {
 
-    return Actions.selectData(app);
+    return AppStores.getAll();
 
   },
 
@@ -41,8 +41,8 @@ var Cosmos = React.createClass({
     return (
 
       <div className="cosmos">
-        <ControlPanel itemList={this.state.app.itemList} onClickItem={this.viewChangeHandler} />
-        <SolarSystem data={this.state.data} />
+        <ControlPanel data={this.state.controlPanel} />
+        <SolarSystem data={this.state.solarSystem} />
       </div>
 
     );

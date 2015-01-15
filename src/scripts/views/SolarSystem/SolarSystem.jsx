@@ -9,42 +9,62 @@ var Planet = require('./Planet.jsx');
 var Satellite = require('./Satellite.jsx');
 var Comet = require('./Comet.jsx');
 
+var AppStores = require('../../stores/AppStores.js');
+
 var SolarSystem = React.createClass({
-  
+
   /**
    * 
    */
   render: function () {
+    var objectNodes = [];
 
-    //
-    var systemMembers = this.props.data.map(function (member) {
+    for(var i = 0, currentObject; i < this.props.data.objects.length; i++) {
+      currentObject = this.props.data.objects[i];
+      switch(currentObject.type) {
 
-      var memberNode;
-
-      switch(member.type) {
-
-        // Star
+        // star
         case 'star':
 
-          memberNode = <Star key={member.name} data={member} />
+          objectNodes.push(
+
+            <Star key={currentObject.objectId} data={currentObject} />
+
+          );
+
           break;
 
         // Planet
         case 'planet':
 
-          memberNode = <Planet key={member.name} data={member} />
+          objectNodes.push(
+
+            <Planet key={currentObject.objectId} data={currentObject} />
+
+          );
+
           break;
 
         // Satellite
         case 'satellite':
 
-          memberNode = <Satellite key={member.name} data={member} />
+          objectNodes.push(
+
+            <Satellite key={currentObject.objectId} data={currentObject} />
+
+          );
+
           break;
 
         // Comet
         case 'comet':
 
-          memberNode = <Comet key={member.name} data={member} />
+          objectNodes.push(
+
+            <Comet key={currentObject.objectId} data={currentObject} />
+
+          );
+
           break;
 
         //
@@ -54,15 +74,13 @@ var SolarSystem = React.createClass({
 
       }
 
-      return memberNode;
-
-    });
+    }
 
     //
     return (
 
       <div className="solar-system">
-        {systemMembers}
+        {objectNodes}
       </div>
 
     );

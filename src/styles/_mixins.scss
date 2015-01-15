@@ -1,0 +1,30 @@
+@mixin orbit-factory($orbit-name) {
+  .orbit {
+    @extend .centered;
+    border: 2px solid rgba($light,.1);
+    @include border-radius(50%);
+    @include transform-style(preserve-3d);
+
+    &-#{$orbit-name} {
+      @content;
+    }
+  }
+}
+
+@mixin planet-factory($planet-name, $size, $top, $left) {
+  .planet {
+    position: relative;
+    cursor: pointer;
+    @include border-radius(50%);
+    @include transform-style(preserve-3d);
+
+    &-#{$planet-name} {
+      top: $top;
+      left: $left;
+      width: $size;
+      height: $size;
+      z-index: 999;
+      @content;
+    }
+  }
+}

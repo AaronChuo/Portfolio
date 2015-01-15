@@ -20,10 +20,7 @@ var Item = React.createClass({
     // ActionCreator will dispatch to Stores to update the data,
     // then the view will be re-rendered by React.
     // this.setState({nowItemId: itemId});
-    Actions.updateData({
-      keyPath: 'app.selectedItemName',
-      value: this.props.data.name
-    });
+    Actions.selectObject(this.props.data.objectId);
 
   },
 

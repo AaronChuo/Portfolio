@@ -1,64 +1,23 @@
 'use strict';
 
 var AppDispatcher = require('../dispatcher/AppDispatcher');
-var AppConstants = require('../constants/AppConstants.js');
+var AppConstants = require('../constants/AppConstants');
 
 var action = {};
 var AppActionCreator = {
 
   /**
-   * Create
+   * Select object
+   * @param  {string} objectId
    */
-  createData: function (data) {
+  selectObject: function (objectId) {
 
-    action = {
-      actionType: AppConstants.CREATE_DATA,
-      data: data
-    };
+    AppDispatcher.dispatch({
 
-    AppDispatcher.dispatch(action);
+      actionType: AppConstants.SELECT_OBJECT,
+      objectId: objectId
 
-  },
-
-  /**
-   * Select
-   */
-  selectData: function (data) {
-
-    action = {
-      actionType: AppConstants.SELECT_DATA,
-      data: data
-    };
-
-    AppDispatcher.dispatch(action);
-
-  },
-
-  /**
-   * Update
-   */
-  updateData: function (data) {
-
-    action = {
-      actionType: AppConstants.UPDATE_DATA,
-      data: data
-    };
-
-    AppDispatcher.dispatch(action);
-
-  },
-
-  /**
-   * Delete
-   */
-  deleteData: function (data) {
-
-    action = {
-      actionType: AppConstants.DELETE_DATA,
-      data: data
-    }
-
-    AppDispatcher.dispatch(action);
+    });
 
   }
 

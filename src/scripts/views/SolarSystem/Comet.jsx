@@ -13,23 +13,25 @@ var Comet = React.createClass({
    */
   render: function () {
 
-    //
-    var timePoints = this.props.data.content.map(function (point) {
+    var pointNodes = [];
 
-      return (
+    for(var i = 0; i < this.props.data.length; i++) {
 
-        <TimePoint key={point.timestamp} data={point} />
+      var currentPoint = this.props.data[i];
+      pointNodes.push(
+
+        <TimePoint key={currentPoint.timestamp} data={currentPoint} />
 
       );
 
-    });
+    }
     
     //
     return (
 
       <div className="comet">
         <ul>
-          {timePoints}
+          {pointNodes}
         </ul>
       </div>
 

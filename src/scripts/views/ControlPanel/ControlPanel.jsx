@@ -6,6 +6,8 @@
 
 var Item = require('./Item.jsx');
 
+var AppStores = require('../../stores/AppStores.js');
+
 var ControlPanel = React.createClass({
 
   /**
@@ -13,13 +15,15 @@ var ControlPanel = React.createClass({
    */
   render: function () {
 
-    var itemList = [];
+    var navNodes = [];
 
-    for(var i = 0; i < this.props.itemList.length; i++) {
+    for(var i = 0, item; i < this.props.data.navigation.length; i++) {
 
-      itemList.push(
+      item = this.props.data.navigation[i];
+
+      navNodes.push(
         
-        <Item key={this.props.itemList[i].name} data={this.props.itemList[i]} />
+        <Item key={item.objectId} data={item} />
       
       );
 
@@ -28,8 +32,8 @@ var ControlPanel = React.createClass({
     return (
 
       <nav>
-        <ul>
-          {itemList}
+        <ul className="navbar">
+          {navNodes}
         </ul>
       </nav>
 
